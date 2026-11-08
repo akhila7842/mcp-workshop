@@ -1,0 +1,15 @@
+
+{
+  "mcpServers": {
+    "mcp-ml-agent": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "C:\\full\\path\\to\\mcp_ml_agent",
+        "run",
+        "python",
+        "mcp_ml_server.py"
+      ]
+    }
+  }
+}

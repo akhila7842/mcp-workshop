@@ -23,7 +23,8 @@ from typing import Any, Dict, Optional, Tuple
 import joblib
 import numpy as np
 import pandas as pd
-
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
 from sklearn.datasets import load_breast_cancer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
@@ -142,7 +143,7 @@ def train_logistic_regression(ds: DatasetBundle, max_iter: int = 10000) -> Logis
 
 
 def train_knn(ds: DatasetBundle, n_neighbors: int = 5) -> KNeighborsClassifier:
-    model = KNeighborsClassifier(n_neighbors=n_neighbors)
+    model = make_pipeline(StandardScaler(), KNeighborsClassifier(n_neighbors=n_neighbors))
     model.fit(ds.X_train, ds.y_train)
     return model
 
